@@ -16,7 +16,7 @@ class ToDo extends React.Component {
     //state생성
     //item이라는 이름으로 props중에서 item이라는 값을 state로 저장
     //props는 상위 컴포넌트에서 전달한 데이터라서 읽기는 가능하지만
-    ///수정이나 삭제가 안되므로 수정이나 삭제를 할 때느 state로 변환해야 함
+    ///수정이나 삭제가 안되므로 수정이나 삭제를 할 때는 state로 변환해야 함
     this.state = {item:props.item}
   }
 
