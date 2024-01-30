@@ -3,7 +3,11 @@ import './App.css';
 
 import React from 'react'
 import ToDo from "./ToDo"
-import Sample from "./Sample"
+// import Sample from "./Sample"
+import AddToDo from './AddToDo'
+
+import {Paper, List, Container} from "@material-ui/core"
+
 
 class App extends React.Component {
   constructor(props){
@@ -22,14 +26,23 @@ class App extends React.Component {
     //item은 배열을 순회할 때 각각의 데이터이고 idx는 인덱스
     //배열을 순회하면서 추력물을 만들 때에는 key를 설정해 주어야 함
     //key를 설정하지않으면 출력은 문제가 없지만 콘솔에 에러가 생김
-    var display = this.state.items.map((item, idx) => (
-      <ToDo item={item} key={item.id} />
-    ))
+    var display = this.state.items.length >0 && (
+      <Paper style={{margin:16}}>
+        <List>
+          {this.state.items.map((item,idx) => (
+            <ToDo item={item} id={idx} />
+          ))}
+        </List>
+      </Paper>
+    )
 
     return(
       <div>
         {/* <ToDo item={this.state.item} /> */}
-        {display}
+        <Container>
+          <AddToDo />
+          {display}
+        </Container>
       </div>
     )
   }
